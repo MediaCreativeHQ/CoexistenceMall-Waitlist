@@ -122,8 +122,8 @@
                     </p>
                 </div>
 
-                <!-- Dual Integration Form: Google Sheets + Mailchimp -->
-                <form id="signupForm" class="space-y-6" action="https://script.google.com/macros/s/AKfycbzZ8Fpj43u5vcFeouCKi_mV6uzKzShsCM7bIGu2rMvMg-IAklrfgsF-vx9qh11CPWYAqA/exec" method="POST" target="hidden_iframe">
+                <!-- Clean Google Sheets Only Form -->
+                <form id="signupForm" class="space-y-6" action="https://script.google.com/macros/s/AKfycbzzyRdEDe6RcQZ1s-nAhruVOZ7YKyNT9QsqrFnFBEU16EAPODguIAhx8lL-LygjxW-uxw/exec" method="POST" target="hidden_iframe">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="fullName" class="block text-sm font-medium text-gray-300 mb-2">
@@ -166,10 +166,10 @@
                                 class="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                             >
                                 <option value="">Select your role</option>
-                                <option value="shopper">🛍️ Shopper - I want to buy products</option>
-                                <option value="vendor">🏪 Vendor - I want to sell products</option>
-                                <option value="supplier">📦 Supplier - I want to supply to vendors</option>
-                                <option value="business">🏢 Business - Multiple roles</option>
+                                <option value="Shopper">🛍️ Shopper - I want to buy products</option>
+                                <option value="Vendor">🏪 Vendor - I want to sell products</option>
+                                <option value="Supplier">📦 Supplier - I want to supply to vendors</option>
+                                <option value="Investor">💰 Investor - I want to invest</option>
                             </select>
                         </div>
 
@@ -220,19 +220,7 @@
         </div>
     </footer>
 
-    <!-- Mailchimp Form (Hidden, for dual integration) -->
-    <div id="mc_embed_signup" style="display: none;">
-        <form action="https://gmail.us22.list-manage.com/subscribe/post?u=4074e57f485c70ab44d36ce55&amp;id=81e9a0a0df&amp;f_id=0086c5e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-            <div id="mc_embed_signup_scroll">
-                <input type="email" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required="" value="">
-                <input type="text" name="FNAME" class="firstname" id="mce-FNAME" placeholder="First name" value="">
-                <input type="text" name="LNAME" class="lastname" id="mce-LNAME" placeholder="Last name" value="">
-                <input type="text" name="MMERGE3" class="business" id="mce-MMERGE3" placeholder="Business name" value="">
-                <input type="text" name="MMERGE4" class="role" id="mce-MMERGE4" placeholder="Role" value="">
-                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe" style="display: none;">
-            </div>
-        </form>
-    </div>
+    <!-- Google Sheets Integration Only -->
 
     <script src="script.js"></script>
 </body>

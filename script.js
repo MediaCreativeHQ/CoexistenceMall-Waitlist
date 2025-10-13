@@ -1,18 +1,9 @@
-// Dual Integration: Google Sheets + Mailchimp for Coexistence Mall waitlist
+// Clean Google Sheets Only Integration - No Mailchimp
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('signupForm');
 
     form.addEventListener('submit', function(e) {
-        // Don't prevent default - let the form submit to Google Sheets
-        console.log('Form submitting to Google Sheets...');
-        
-        // Get form data for Mailchimp
-        const formData = {
-            email: document.getElementById('email').value,
-            fullName: document.getElementById('fullName').value,
-            businessName: document.getElementById('businessName').value,
-            userType: document.getElementById('userType').value
-        };
+        console.log('📊 Form submitting to Google Sheets only...');
         
         // Show loading state
         const button = form.querySelector('button[type="submit"]');
@@ -24,15 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Joining Waitlist...
+                Joining the Revolution...
             </div>
         `;
         button.disabled = true;
         
-        // Also submit to Mailchimp (dual integration)
-        submitToMailchimp(formData);
-        
-        // Reset button and show success after delay
+        // Reset button and show success after delay (Google Sheets only)
         setTimeout(() => {
             showSuccessMessage();
             form.reset();
@@ -40,29 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             button.disabled = false;
         }, 3000);
     });
-
-    function submitToMailchimp(data) {
-        try {
-            // Split name into first and last
-            const nameParts = data.fullName.split(' ');
-            const firstName = nameParts[0] || '';
-            const lastName = nameParts.slice(1).join(' ') || '';
-            
-            // Fill hidden Mailchimp form
-            document.getElementById('mce-EMAIL').value = data.email;
-            document.getElementById('mce-FNAME').value = firstName;
-            document.getElementById('mce-LNAME').value = lastName;
-            document.getElementById('mce-MMERGE3').value = data.businessName || '';
-            document.getElementById('mce-MMERGE4').value = data.userType || '';
-            
-            // Submit Mailchimp form in background
-            document.getElementById('mc-embedded-subscribe').click();
-            
-            console.log('✅ Also submitted to Mailchimp');
-        } catch (error) {
-            console.log('⚠️ Mailchimp submission failed, but Google Sheets still working:', error);
-        }
-    }
 
     function showSuccessMessage() {
         // Create success message
